@@ -1,8 +1,8 @@
 
-CREATE DATABASE TradeCategorizer2
+CREATE DATABASE TradeCategorizer
 GO
 
-USE TradeCategorizer2
+USE TradeCategorizer
 GO
 
 /* Creating Tables */
@@ -13,20 +13,25 @@ CREATE TABLE Category(
 	minValue float NULL,
 	maxValue float NULL,
 	clientSector varchar(20) NOT NULL,
- CONSTRAINT PK_Category PRIMARY KEY CLUSTERED 
-(
-	id ASC
-))
+	PRIMARY KEY (id)
+)
 GO
 
 CREATE TABLE Portfolio(
 	id int IDENTITY(1,1) NOT NULL,
 	value float NOT NULL,
 	clientSector varchar(20) NOT NULL,
- CONSTRAINT PK_Portfolio PRIMARY KEY CLUSTERED 
-(
-	id ASC
-)) 
+	PRIMARY KEY (id)
+) 
+GO
+
+CREATE TABLE CategorizedPortfolio(
+	id INT IDENTITY(1,1) NOT NULL,
+	portId INT NOT NULL,
+	categoryName VARCHAR(20) NOT NULL,
+	PRIMARY KEY (id),
+	FOREIGN KEY (portId) REFERENCES Portfolio (id)
+)
 GO
 
 /* Inserting Categories */
@@ -84,7 +89,7 @@ VALUES
 GO
 
 
-/* Creating view to categorize trades */
+/* Creating view to select categorized trades */
 
 CREATE VIEW vwTradeCategories AS
 SELECT p.id [TradeId], c.categoryName [Category]
@@ -101,9 +106,26 @@ OUTER APPLY (
 ) c
 GO
 
+CREATE PROCEDURE CategorizeTrades
+AS 
+	INSERT INTO CategorizedPortfolio ( 
+		portId, 
+		categoryName
+	)
+	SELECT TradeId, Category FROM vwTradeCategories
+	WHERE tradeId NOT IN (
+		SELECT portId FROM CategorizedPortfolio
+	)
+GO
+	
+
 
 /* Categorizing sample portfolio */ 
 
-SELECT * FROM vwTradeCategories;
+
+EXEC CategorizeTrades
+GO 
+
+SELECT * FROM CategorizedPortfolio;
 
 
