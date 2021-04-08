@@ -13,6 +13,11 @@ namespace TradeCategorizer.Models
         }
 
 
+        /// <summary>
+        /// Computes and return a list of categories based on a provided portfolio
+        /// </summary>
+        /// <param name="portfolio">The portfolio to be computed</param>
+        /// <returns>A List of string of the computed categories</returns>
         public List<string> GetTradeCategories(List<ITrade> portfolio)
         {
             List<string> tradeCategories = new();
@@ -26,6 +31,11 @@ namespace TradeCategorizer.Models
             return tradeCategories;
         }
 
+        /// <summary>
+        /// Finds the most fit category of a provided trade
+        /// </summary>
+        /// <param name="trade">The trade of the category to be found</param>
+        /// <returns>A object of the category of the given trade, or null if no category is fit.</returns>
         public ICategory FindTradeCategory(ITrade trade)
         {
             foreach (ICategory category in _availableCategories)
