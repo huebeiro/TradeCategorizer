@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TradeCategorizer.Models.Base;
 
 namespace TradeCategorizer.Models
 {
     public class Categorizer
     {
-        private List<ICategory> AvailableCategories;
+        private readonly List<ICategory> _availableCategories;
 
         public Categorizer(List<ICategory> availableCategories)
         {
-            AvailableCategories = availableCategories;
+            _availableCategories = availableCategories;
         }
 
 
@@ -21,7 +17,7 @@ namespace TradeCategorizer.Models
         {
             List<string> tradeCategories = new();
 
-            foreach(ITrade trade in portfolio)
+            foreach (ITrade trade in portfolio)
             {
                 ICategory category = FindTradeCategory(trade);
                 tradeCategories.Add(category != null ? category.Risk : null);
@@ -32,7 +28,7 @@ namespace TradeCategorizer.Models
 
         public ICategory FindTradeCategory(ITrade trade)
         {
-            foreach (ICategory category in AvailableCategories)
+            foreach (ICategory category in _availableCategories)
             {
                 if (category.CheckCondition(trade))
                 {

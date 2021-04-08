@@ -10,7 +10,14 @@ namespace TradeCategorizerTest
         private Categorizer Categorizer;
         public CategorizerTest()
         {
-            //TODO Inject categorizer
+            Categorizer = new(
+                new List<ICategory>()
+                {
+                    new LowRiskCategory(),
+                    new MediumRiskCategory(),
+                    new HighRiskCategory()
+                }
+            );
         }
 
         [Theory]
@@ -20,7 +27,6 @@ namespace TradeCategorizerTest
         [InlineData(3000000, "Public", "MEDIUMRISK")]
         public void SampleIndividualTradeTheory(double value, string clientSector, string resultRisk)
         {
-            //TODO Implement test
             Assert.Equal(
                 resultRisk,
                 Categorizer.FindTradeCategory(new Trade(value, clientSector)).Risk
@@ -28,7 +34,7 @@ namespace TradeCategorizerTest
         }
 
         [Fact]
-        public void SamplePortfolioTest()
+        public void SamplePortfolioFact()
         {
             Assert.Equal(
                 new List<string>

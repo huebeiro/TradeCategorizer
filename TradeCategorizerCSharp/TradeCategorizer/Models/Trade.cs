@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TradeCategorizer.Models.Base;
+﻿using TradeCategorizer.Models.Base;
 
 namespace TradeCategorizer.Models
 {
