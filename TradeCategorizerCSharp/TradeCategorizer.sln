@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeCategorizer", "TradeCategorizer\TradeCategorizer.csproj", "{302FDF47-C0C6-44C4-8A7A-33B7A22B3271}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeCategorizerTest", "TradeCategorizerTest\TradeCategorizerTest.csproj", "{91AE9EE4-D8FB-4CE2-A611-C8EE7294C17D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{302FDF47-C0C6-44C4-8A7A-33B7A22B3271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302FDF47-C0C6-44C4-8A7A-33B7A22B3271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302FDF47-C0C6-44C4-8A7A-33B7A22B3271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302FDF47-C0C6-44C4-8A7A-33B7A22B3271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91AE9EE4-D8FB-4CE2-A611-C8EE7294C17D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91AE9EE4-D8FB-4CE2-A611-C8EE7294C17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91AE9EE4-D8FB-4CE2-A611-C8EE7294C17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91AE9EE4-D8FB-4CE2-A611-C8EE7294C17D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B908DDAE-A9AF-44D0-9AEF-A374BDAF5F35}
+	EndGlobalSection
+EndGlobal
